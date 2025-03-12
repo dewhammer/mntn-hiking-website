@@ -28,8 +28,8 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center bg-hero-pattern bg-cover bg-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-overlay"></div>
       
-      {/* Social Links - Only on desktop */}
-      {!isMobile && (
+      {/* Social Links - DESKTOP ONLY - HIDDEN ON MOBILE WITH DISPLAY NONE */}
+      <div className="hidden md:block">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -54,7 +54,7 @@ const Hero = () => {
             </a>
           </motion.div>
         </motion.div>
-      )}
+      </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10 mt-16 md:mt-0">
@@ -88,8 +88,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Slider Navigation - Only on desktop */}
-      {!isMobile && (
+      {/* Slider Navigation - DESKTOP ONLY - HIDDEN ON MOBILE WITH DISPLAY NONE */}
+      <div className="hidden md:block">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -112,9 +112,7 @@ const Hero = () => {
           </motion.div>
           <div className="text-white mt-2 md:mt-4 font-bold text-sm md:text-lg">01</div>
         </motion.div>
-      )}
-
-      {/* No mobile social links at bottom - moved to footer */}
+      </div>
     </section>
   );
 };

@@ -38,17 +38,16 @@ const Footer = () => {
               Get out there & discover your next slope, mountain & destination!
             </p>
             
-            {/* Social Media Icons for Mobile */}
-            {isMobile && (
-              <div className="flex space-x-5 mt-6">
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  <FaInstagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  <FaTwitter className="w-6 h-6" />
-                </a>
-              </div>
-            )}
+            {/* Social Media Icons - Always visible on mobile, hidden on desktop */}
+            <div className="flex space-x-5 mt-6 md:hidden">
+              <a href="#" className="text-white hover:text-primary transition-colors duration-300">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-white hover:text-primary transition-colors duration-300">
+                <FaTwitter className="w-6 h-6" />
+              </a>
+              <span className="text-white/70 font-medium ml-2">Follow us</span>
+            </div>
           </div>
 
           {/* More on The Blog */}
