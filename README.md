@@ -2,6 +2,10 @@
 
 A modern, animated website for mountain hiking enthusiasts built with Next.js, Tailwind CSS, and Framer Motion.
 
+## Live Demo
+
+Check out the live demo of the website on Vercel: [MNTN Mountain Hiking Website](https://mntn-hiking-website.vercel.app)
+
 ## Features
 
 - Responsive design for all device sizes
@@ -41,7 +45,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployment
 
-This project is deployed on Vercel. The production version can be found at [your-project-url].
+This project is deployed on Vercel. The production version can be found at [https://mntn-hiking-website.vercel.app](https://mntn-hiking-website.vercel.app).
 
 ## License
 
