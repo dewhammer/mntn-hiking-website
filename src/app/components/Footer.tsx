@@ -1,8 +1,29 @@
 'use client';
 
+import { FaInstagram, FaTwitter } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+
 const Footer = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
-    <footer className="bg-dark py-16 md:py-24">
+    <footer className="bg-dark py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
           {/* Logo and Description */}
@@ -16,6 +37,18 @@ const Footer = () => {
             <p className="text-white/70 text-base md:text-lg font-medium leading-[1.778] max-w-[303px]">
               Get out there & discover your next slope, mountain & destination!
             </p>
+            
+            {/* Social Media Icons for Mobile */}
+            {isMobile && (
+              <div className="flex space-x-5 mt-6">
+                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
+                  <FaInstagram className="w-6 h-6" />
+                </a>
+                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
+                  <FaTwitter className="w-6 h-6" />
+                </a>
+              </div>
+            )}
           </div>
 
           {/* More on The Blog */}

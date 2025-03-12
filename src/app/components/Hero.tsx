@@ -25,10 +25,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center bg-hero-pattern bg-cover bg-center">
+    <section className="relative min-h-screen flex items-center bg-hero-pattern bg-cover bg-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-overlay"></div>
       
-      {/* Social Links - Hidden on mobile */}
+      {/* Social Links - Only on desktop */}
       {!isMobile && (
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -88,7 +88,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Slider Navigation - Hidden on small mobile */}
+      {/* Slider Navigation - Only on desktop */}
       {!isMobile && (
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -99,7 +99,7 @@ const Hero = () => {
           <div className="text-white/70 mb-2 md:mb-4 font-bold text-sm md:text-lg">Start</div>
           <motion.div 
             initial={{ height: 0 }}
-            animate={{ height: isMobile ? "8rem" : "12rem" }}
+            animate={{ height: "12rem" }}
             transition={{ duration: 1, delay: 1.4 }}
             className="w-[2px] bg-white/30 relative"
           >
@@ -114,19 +114,7 @@ const Hero = () => {
         </motion.div>
       )}
 
-      {/* Mobile-only social links at bottom */}
-      {isMobile && (
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center">
-          <div className="flex space-x-6">
-            <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-              <FaInstagram className="w-6 h-6" />
-            </a>
-            <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-              <FaTwitter className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
-      )}
+      {/* No mobile social links at bottom - moved to footer */}
     </section>
   );
 };

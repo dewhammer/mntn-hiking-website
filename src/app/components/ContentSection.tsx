@@ -41,23 +41,17 @@ const ContentSection = ({
   }, []);
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Mobile layout (stacked) */}
         {isMobile && (
-          <div className="flex flex-col space-y-12">
-            <div className="relative">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 0.1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="absolute -top-10 -left-4 z-0"
-              >
-                <span className="text-[160px] font-bold chronicle leading-none opacity-10">
+          <div className="flex flex-col space-y-8">
+            <div className="relative pt-8">
+              <div className="absolute -top-4 -left-2 z-0">
+                <span className="text-[120px] font-bold chronicle leading-none opacity-10">
                   {number}
                 </span>
-              </motion.div>
+              </div>
               
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -71,7 +65,7 @@ const ContentSection = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-primary font-gilroy text-sm md:text-lg tracking-widest font-bold mb-4 block uppercase"
+                  className="text-primary font-gilroy text-sm tracking-widest font-bold mb-3 block uppercase"
                 >
                   {subtitle}
                 </motion.span>
@@ -80,7 +74,7 @@ const ContentSection = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="chronicle text-4xl md:text-5xl lg:text-[64px] font-semibold leading-[1.136] mb-6"
+                  className="chronicle text-3xl font-semibold leading-[1.136] mb-4 max-w-[300px]"
                 >
                   {title}
                 </motion.h2>
@@ -88,24 +82,26 @@ const ContentSection = ({
             </div>
             
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8 }}
               className="w-full"
             >
-              <div className="relative aspect-[4/3] md:aspect-[3/4] w-full">
+              <div className="relative aspect-[4/3] w-full">
                 <Image
                   src={image}
                   alt={title}
                   fill
-                  className="object-cover rounded-2xl"
+                  className="object-cover rounded-xl"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               </div>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8 }}
@@ -115,7 +111,7 @@ const ContentSection = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-white/70 text-base md:text-lg font-medium leading-[1.778] mb-6"
+                className="text-white/70 text-base font-medium leading-[1.778] mb-5"
               >
                 {description}
               </motion.p>
@@ -124,10 +120,10 @@ const ContentSection = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-primary font-gilroy font-bold text-base md:text-lg flex items-center gap-2 group"
+                className="text-primary font-gilroy font-bold text-base flex items-center gap-2 group"
               >
                 read more 
-                <FaArrowRight className="w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-2" />
+                <FaArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-2" />
               </motion.button>
             </motion.div>
           </div>
@@ -210,6 +206,8 @@ const ContentSection = ({
                   alt={title}
                   fill
                   className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               </div>
             </motion.div>
